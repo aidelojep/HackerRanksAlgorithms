@@ -4,15 +4,27 @@ import java.util.ArrayList;
 
 public class OddNumbers
 {
-    public static ArrayList findOddNumbers (int l, int r)
+    public static ArrayList findOddNumbers (int start, int end)
     {
+        if(start < 0 || end < 0){
+            throw new IllegalArgumentException("Number cannot be lessed than zero!!");
+        }
+
+        if(start > end){
+            int temp = start;
+            start = end;
+            end = temp;
+        }
+
         ArrayList<Integer> odd = new ArrayList<>();
-        for(int x=l; x<=r;x++)
+
+        for(int x=start; x<=end; x++)
         {
             if(x % 2 != 0)
             {
                 odd.add(x);
             }
+
         }
       return odd;
 
@@ -29,7 +41,7 @@ public class OddNumbers
     }
 
     public static void main(String[] args) {
-        System.out.println(findOddNumbers(2,20));
+        System.out.println(findOddNumbers(50,40));
         oddNumbersBetweenOneAndHundred();
     }
 
